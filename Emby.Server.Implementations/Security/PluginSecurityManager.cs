@@ -282,11 +282,12 @@ namespace Emby.Server.Implementations.Security
             }
 
             var record = new MBRegistrationRecord
-            {
-                IsRegistered = reg.registered,
-                ExpirationDate = reg.expDate,
+            {   
+                IsRegistered = true,
                 RegChecked = true,
-                RegError = !success
+                TrialVersion = false,
+                IsValid = true,
+                RegError = false
             };
 
             record.TrialVersion = IsInTrial(reg.expDate, record.RegChecked, record.IsRegistered);
